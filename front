@@ -1,0 +1,53 @@
+from PIL import Image
+import streamlit as st
+import pandas as pd
+import numpy as np
+
+# ЭКСПЕРИМЕНТЫ
+# импортирование заглавного текста
+st.title("Рекомендационный проект МТС")
+
+# Реализация столбцов
+col1, col2 = st.columns(2)
+with col1:
+    Prise = st.slider("Цена:", 100, 15000)
+with col2:
+    sort = st.selectbox("Сортировать: ",
+                        ['От плохого к хорошему', 'От хорошего к плохому', 'По названию'])
+
+# Мультивыбор тэгов
+location = st.multiselect(
+    "Где Вы работали?", ['t', 'k'])
+
+col1, col2 = st.columns(2)
+with col1:
+    aktiv = st.multiselect("Активность: ",
+                           ['Парк', 'Поход', 'Бег', 'б'])
+with col2:
+    family = st.multiselect("Семья: ",
+                            ['Да', 'm', 'y'])
+
+col1, col2 = st.columns(2)
+with col1:
+    state = st.multiselect("Место:",
+                           ['Москва', 'е', 'р', 'о'])
+with col2:
+    kategor = st.multiselect("Категория: ",
+                             ['a', 't', 'e'])
+
+col1, col2 = st.columns(2)
+with col1:
+    dlitelnost = st.multiselect("Длительность: ",
+                                ['л', 'и', 'т'])
+with col2:
+    pass
+
+# Изображение/карточки
+image = Image.open('u.jpg')
+
+st.image(image, caption='Sunrise by the mountains')
+col1, col2 = st.columns(2)
+with col1:
+    st.image(image, caption='Sunrise by the mountains')
+with col2:
+    pass
